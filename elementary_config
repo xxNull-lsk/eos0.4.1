@@ -79,10 +79,10 @@ then
   
   APT="apt-get"
   which apt-fast >> /dev/null
-  if "$?" -eq 0 then
+  if [ "$?" -eq 0 ]; then
   	APT="apt-fast"
   fi
-
+  
   # 安装软件源设置工具操作
   if [[ $GUI == *"安装软件源设置工具"* ]]
   then
@@ -100,7 +100,7 @@ then
   	echo ""
 	sudo add-apt-repository -y ppa:webupd8team/java
 	sudo $APT -y update
-	sudo $APT install -y oracle-java9-installer
+	sudo $APT install -y oracle-java9-installer oracle-java9-set-default
   fi
 
   # 调整屏幕默认亮度操作
